@@ -1,0 +1,24 @@
+Edge Functions listed:
+1. approve product  
+2. approve provider  
+3. create employee  
+4. customer orders create  
+5. customer orders list  
+6. customer orders secure list  
+7. delete account  
+8. delete provider  
+9. disable employee  
+10. list employees  
+11. list products  
+12. list provider products  
+13. product details  
+14. provider edit item  
+15. provider order get  
+16. provider orders list  
+17. provider order update status  
+18. reject product  
+19. reject provider  
+20. update employee  
+
+
+

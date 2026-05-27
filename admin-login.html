@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="/Project25/icon.png?v=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login - Lab Supplies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b57b7;
+            --bg2: #083c8f;
+            --card: rgba(255,255,255,.14);
+            --card2: rgba(255,255,255,.10);
+            --txt: #fff;
+            --muted: rgba(255,255,255,.78);
+            --radius: 22px
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+            background: radial-gradient(circle at top,#3bc7ff 0%,var(--bg) 40%,var(--bg2) 85%);
+            overflow: hidden
+        }
+
+        .blob {
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            background: rgba(255,255,255,.10);
+            filter: blur(2px);
+            border-radius: 52% 48% 58% 42% / 45% 55% 45% 55%;
+            z-index: -1
+        }
+
+        .b1 {
+            top: -110px;
+            left: -120px
+        }
+
+        .b2 {
+            bottom: -140px;
+            right: -140px;
+            width: 520px;
+            height: 520px;
+            opacity: .12
+        }
+
+        .box {
+            width: min(520px,92vw);
+            background: var(--card);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,.22);
+            border-radius: 28px;
+            box-shadow: 0 18px 50px rgba(0,0,0,.25);
+            padding: 26px
+        }
+
+        .head {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 14px
+        }
+
+        .logo {
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            background: linear-gradient(135deg,#2f87ff,#6ee7ff);
+            box-shadow: 0 12px 26px rgba(0,0,0,.22)
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: .4px;
+            color: var(--txt)
+        }
+
+        .sub {
+            margin: 2px 0 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .grid {
+            display: grid;
+            gap: 10px;
+            margin-top: 12px
+        }
+
+        label {
+            font-size: 12px;
+            color: rgba(255,255,255,.85);
+            font-weight: 600
+        }
+
+        .input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--card2);
+            border: 1px solid rgba(255,255,255,.16);
+            border-radius: 16px;
+            padding: 12px 14px
+        }
+
+            .input i {
+                opacity: .9
+            }
+
+        input {
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #fff;
+            width: 100%;
+            font-size: 14px
+        }
+
+            input::placeholder {
+                color: rgba(255,255,255,.65)
+            }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 6px
+        }
+
+        .hint {
+            font-size: 12px;
+            color: rgba(255,255,255,.75)
+        }
+
+        .btn {
+            border: none;
+            cursor: pointer;
+            border-radius: 16px;
+            padding: 12px 14px;
+            font-weight: 700;
+            transition: .2s
+        }
+
+            .btn:hover {
+                transform: translateY(-2px)
+            }
+
+        .primary {
+            background: linear-gradient(135deg,#1e6fd9,#2f87ff);
+            color: #fff;
+            box-shadow: 0 14px 30px rgba(30,111,217,.30)
+        }
+
+        .ghost {
+            background: rgba(255,255,255,.12);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,.18)
+        }
+
+        .err {
+            display: none;
+            margin-top: 10px;
+            background: rgba(255,0,0,.12);
+            border: 1px solid rgba(255,0,0,.20);
+            color: #ffd1d1;
+            border-radius: 14px;
+            padding: 10px 12px;
+            font-size: 13px
+        }
+
+        .foot {
+            margin-top: 14px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        a {
+            color: #eaf2ff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px
+        }
+
+            a:hover {
+                text-decoration: underline
+            }
+    </style>
+    <link rel="stylesheet" href="../asset/css/global-bg.css" />
+</head>
+<body>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+
+    <div class="box">
+        <div class="head">
+            <div class="logo"></div>
+            <div>
+                <h1>Admin Login</h1>
+                <div class="sub">Secure access to Lab Supplies dashboard</div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div>
+                <label>Email</label>
+                <div class="input"><i class="fa-solid fa-user"></i><input id="u" placeholder="@lab.com" autocomplete="email"></div>
+            </div>
+            <div>
+                <label>Password</label>
+                <div class="input"><i class="fa-solid fa-lock"></i><input id="p" type="password" placeholder="••••••••" autocomplete="current-password"></div>
+            </div>
+
+            <button class="btn primary" id="loginBtn">Login</button>
+            <div class="err" id="err">Wrong username or password.</div>
+
+            <div class="foot">
+                <a href="../role-select.html?mode=login"><i class="fa-solid fa-arrow-left"></i> Back</a>
+                <!-- Admin self-registration removed (managed by system) -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../asset/js/transition.js"></script>
+    <script src="../asset/js/supabase-config.js"></script>
+    <script type="module" src="./admin-supabase-login.js"></script>
+</body>
+</html>

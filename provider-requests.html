@@ -1,0 +1,187 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="/Project25/icon.png?v=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Provider Requests</title>
+    <style>
+        :root {
+            --bg: #0b57b7;
+            --bg2: #083c8f;
+            --panel: rgba(255, 255, 255, 0.95);
+            --line: rgba(11, 27, 58, 0.12);
+            --text: #0b1b3a;
+            --muted: #5f6f90;
+            --ok: #107a45;
+            --danger: #c3262f;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Poppins, Arial, sans-serif;
+            color: var(--text);
+            background: radial-gradient(circle at top, #3bc7ff 0%, var(--bg) 40%, var(--bg2) 85%);
+            min-height: 100vh;
+            padding: 22px;
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(12px);
+        }
+
+        header {
+            padding: 18px 22px;
+            color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        p {
+            margin: 6px 0 0;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .back {
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 12px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .panel {
+            background: var(--panel);
+            padding: 16px;
+        }
+
+        .err {
+            display: none;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            padding: 10px 12px;
+            font-size: 14px;
+            color: #fff;
+            background: rgba(195, 38, 47, 0.9);
+        }
+
+        .table-wrap {
+            overflow: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 980px;
+            border-collapse: collapse;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 11px 10px;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+            font-size: 13px;
+        }
+
+        th {
+            background: #eef4ff;
+            font-weight: 700;
+            color: #1f3766;
+        }
+
+        code {
+            background: #f3f6ff;
+            padding: 2px 6px;
+            border-radius: 8px;
+            border: 1px solid #dce7ff;
+            font-size: 12px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 10px;
+            padding: 7px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .approve {
+            background: rgba(16, 122, 69, 0.12);
+            color: var(--ok);
+            border: 1px solid rgba(16, 122, 69, 0.35);
+        }
+
+        .reject {
+            background: rgba(195, 38, 47, 0.12);
+            color: var(--danger);
+            border: 1px solid rgba(195, 38, 47, 0.35);
+        }
+    </style>
+    <link rel="stylesheet" href="../asset/css/global-bg.css" />
+</head>
+<body>
+    <div class="wrap">
+        <header>
+    <link rel="icon" type="image/png" href="/Project25/icon.png?v=1" />
+            <div>
+                <h1>Provider Requests</h1>
+                <p>Approve or reject pending provider sign-up requests.</p>
+            </div>
+            <a class="back" href="./admin-dashboard-modern.html">← Back to Dashboard</a>
+        </header>
+
+        <div class="panel">
+            <div id="err" class="err"></div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Company</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reqBody">
+                        <tr><td colspan="8">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../asset/js/supabase-config.js"></script>
+    <script type="module" src="./admin-provider-requests.js"></script>
+</body>
+</html>
